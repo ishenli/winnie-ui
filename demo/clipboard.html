@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>clipboard</title>
+    <link rel="stylesheet" href="../dep/lacus/asset/all/all.css"/>
+</head>
+<body>
+<div class="mp-box" id="box" >
+    <form class="mp-form mp-form-horizontal">
+        <div class="mp-form-item">
+            <label class="mp-form-label" for="copy">复制的内容：</label>
+            <input class="mp-input j-input" id="copy" >
+            <input type="button" class="mp-form-other mp-btn mp-btn-blue" id="j-copy-btn" value="复制"/>
+        </div>
+    </form>
+</div>
+<label for="result">粘贴</label>
+<textarea cols="30" rows="20" id="result"></textarea>
+<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+<script>
+    require.config({
+        'baseUrl': '../src',
+        'paths': {},
+        'packages': [
+            {
+                'name': 'etpl',
+                'location': '../dep/etpl/3.0.0/src',
+                'main': 'main'
+            },
+            {
+                'name': 'winnie',
+                'location': '../dep/winnie/0.6.1/src',
+                'main': 'lib'
+            }
+        ]
+    });
+    require(['Clipboard','winnie'], function (Clipboard,lib) {
+
+
+        var clip = new Clipboard({
+            element:'#j-copy-btn',
+            moviePath:'../src/clipboard/ZeroClipboard.swf'
+        });
+
+        clip.on('complete',function() {
+            alert('copy success');
+        });
+
+        lib.on(lib.get('.mp-btn'), 'click', function (e) {
+            clip.setCurrent(this);
+            var text = lib.get('.mp-input',this.parentNode).value;
+            clip.setText(text);
+        });
+
+        window.clip = clip;
+    });
+</script>
+</body>
+</html>

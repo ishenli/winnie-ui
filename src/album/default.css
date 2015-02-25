@@ -1,0 +1,59 @@
+/**
+ * @file 默认album样式
+ * @author ishenli（meshenli@gmail.com）
+ */
+.prev .iconfont-prev:after {
+  content: '\f016e';
+}
+.iconfont-next:after {
+  content: '\359e';
+}
+.mp-album .handler {
+  position: absolute;
+  top: 45%;
+  z-index: 10;
+  cursor: pointer;
+  font-size: 30px;
+}
+.mp-album .prev {
+  left: 35px;
+}
+.mp-album .next {
+  right: 375px;
+}
+.mp-album .box {
+  position: relative;
+  background-color: #191919;
+}
+.mp-album .box-main {
+  position: relative;
+  overflow: hidden;
+}
+.mp-album .box-aside {
+  position: absolute;
+  width: 330px;
+  top: 0;
+  right: 0;
+  background-color: #F5F5F5;
+  overflow-y: auto;
+}
+.mp-album .iconfont{
+    color: #fff;
+}
+.mp-album .box-aside .aside-wrap {
+  padding: 10px;
+}
+.mp-album .box-aside .head {
+  line-height: 38px;
+  font-size: 14px;
+  border-bottom: 1px solid #E0E0E0;
+}
+.mp-album .box-aside .head .num {
+  font-size: 16px;
+  font-weight: 700;
+  padding-right: 10px;
+}
+.mp-album .box-aside .desc {
+  line-height: 2em;
+  padding-top: 8px;
+}

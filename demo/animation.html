@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>animation test</title>
+    <link rel="stylesheet" href="../dep/lacus/asset/all/all.css"/>
+    <style>
+        #test{
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border:1px solid red;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div class="mp-box mp-box-primary">
+    <div class="mp-box-head">
+        <h3 class="mp-box-head-title">animation test</h3>
+    </div>
+    <div class="mp-box-container">
+        <div id="test">
+        </div>
+    </div>
+</div>
+<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+<script>
+    require.config({
+        'baseUrl': '../src',
+        'packages': [
+            {
+                'name': 'etpl',
+                'location': '../dep/etpl/3.0.0/src',
+                'main': 'main'
+            },
+            {
+                'name': 'winnie',
+                'location': '../dep/winnie/0.6.1/src',
+                'main': 'lib'
+            }
+        ],
+        'paths': {}
+    });
+
+    require(['winnie/component/animation','winnie'], function (anim,lib) {
+
+        var ele = document.getElementById('test');
+
+        var animation = anim.animation(ele);
+
+        animation
+            // x、y轴各移动20像素
+                .move(400, 400)
+            // 设置动画时长为700ms
+                .duration(2)
+
+            // easing
+                .ease('ease-in-out-cubic')
+            // 同时再旋转60度
+                .rotate(60)
+            // 跑起来～
+                .run()
+            // 动画完后再干点啥
+                .finish(function () {
+                    console.log('Surprise')
+                })
+                .move(-400,-400)
+                .ease('out-in')
+                .duration(3)
+                .run()
+                .rotate(-60)
+                .run();
+    });
+</script>
+
+</body>
+</html>
