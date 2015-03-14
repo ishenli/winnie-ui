@@ -1,15 +1,26 @@
 {
-    "name": "winnie-ui",
-    "license": "MIT",
-    "private": true,
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "devDependencies": {
-        "lacus" : "https://github.com/ishenli/lacus.git"
-    }
+  "name": "winnie-ui",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "dep"
+  ],
+  "devDependencies": {
+    "lacus": "https://github.com/ishenli/lacus.git"
+  },
+  "version": "0.0.1",
+  "homepage": "https://github.com/ishenli/winnie-ui",
+  "authors": [
+    "ishenli <meshenli@gmail.com>"
+  ],
+  "description": "a simple ui based on winnie",
+  "main": "Widget.js",
+  "keywords": [
+    "winnie",
+    "ui"
+  ]
 }
