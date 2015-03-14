@@ -5,13 +5,12 @@
 
 define(function (require) {
 
-    var util = require('../winnie/lib/util');
+    var util = require('winnie/lib/util');
     var exports = {};
 
     /**
      * 合并传入的配置项
-     * @param {Object} config
-     * @returns {*}
+     * @param {Object} config 配置项
      */
     exports.setOptions = function (config) {
 
@@ -51,10 +50,12 @@ define(function (require) {
             ? option.getter.call(this, val, key)
             : val;
     };
+
     /**
      * 设定options中的配置
      * @param {string} key 配置项
      * @param {string} val 配置值
+     * @param {Object} config 配置
      * @returns 实例
      */
     exports.set = function (key, val, config) {
